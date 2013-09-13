@@ -1,10 +1,3 @@
-import scala.collection.mutable
-import scala.math
-
-
-
-object projectEuler extends App {
-	
   /*
 	 * 
 	 * The prime factors of 13195 are 5, 7, 13 and 29.
@@ -15,30 +8,38 @@ object projectEuler extends App {
 	 * 
 	 * 
 	 * */
+
+import scala.math
+import scala.collection.mutable
+
+object projectEuler extends App {
   
-  
-  val n :Long= 13195L
+  val n :Long= 131954L
   
   //generate list
-  val list = 1 to n
+  val list = mutable.ListBuffer(1)
+  var i,k = 2
+  
+  while(i<=n){
+    list += i
+    i +=1
+  }
   
   //generate prime list
-  var list_primos = list
-    
+  var list_primos = list    
   while(k<= math.sqrt(n)){
       if(list_primos.contains(k)){
     	  var j = k
     	  while(j <= (n/k)){
     		  list_primos -= k*j
-    		  j = j+1
+    		  j +=1
     	  }
       }
-      k = k+1
+      k +=1
   }    
   
   val maxPrimo = list_primos.filter(x => n%x==0).max
   
-  println(maxPrimo)
-  
+  println(maxPrimo) 
 
 }
