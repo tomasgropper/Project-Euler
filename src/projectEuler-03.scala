@@ -16,20 +16,15 @@ object projectEuler extends App {
 	 * 
 	 * */
   
-  val list = mutable.ListBuffer(1) 
   
   val n :Long= 13195L
   
   //generate list
-  var i,k = 2
-  while(i<= n){
-    list +=i
-    i = i+1
-  }
-  
-  var list_primos = list
+  val list = 1 to n
   
   //generate prime list
+  var list_primos = list
+    
   while(k<= math.sqrt(n)){
       if(list_primos.contains(k)){
     	  var j = k
